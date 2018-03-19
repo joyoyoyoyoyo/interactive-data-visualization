@@ -17,16 +17,23 @@ lazy val server = (project in file("server")).settings(commonSettings).settings(
   compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline).value,
 
   libraryDependencies ++= Seq(
+    guice,
     "com.vmunier" %% "scalajs-scripts" % "1.1.1",
     "javax.xml.bind" % "jaxb-api" % "2.1",
-    "org.webjars" % "requirejs" % "2.1.22",
+    "org.webjars" %% "webjars-play" % "2.6.3",
+    "org.webjars" % "requirejs" % "2.2.0",
     "org.webjars" % "jquery" % "2.1.4",
     "org.webjars" % "underscorejs" % "1.8.3",
     "org.webjars" % "nvd3" % "1.8.1",
-    "org.webjars" % "d3js" % "3.5.6",
-    "org.webjars" % "bootstrap" % "3.3.6",
-    guice
+    "org.webjars" % "d3js" % "3.5.17",
+    "org.webjars" % "bootstrap" % "3.3.6"
+
   ),
+
+  // Heroku specific
+  herokuAppName in Compile := "interactive-data-visualization",
+  herokuSkipSubProjects in Compile := false,
+
   // Play Framework
   routesGenerator := InjectedRoutesGenerator)
   .enablePlugins(PlayScala)
