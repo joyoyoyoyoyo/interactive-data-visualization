@@ -24,7 +24,8 @@ lazy val server = (project in file("server")).settings(commonSettings).settings(
     "org.webjars" % "underscorejs" % "1.8.3",
     "org.webjars" % "nvd3" % "1.8.1",
     "org.webjars" % "d3js" % "3.5.6",
-    "org.webjars" % "bootstrap" % "3.3.6"
+    "org.webjars" % "bootstrap" % "3.3.6",
+    guice
   ),
   // Play Framework
   routesGenerator := InjectedRoutesGenerator)
