@@ -6,6 +6,13 @@ lazy val server = (project in file("server")).settings(commonSettings).settings(
   compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline).value,
   libraryDependencies ++= Seq(
     "com.vmunier" %% "scalajs-scripts" % "1.1.1",
+    "javax.xml.bind" % "jaxb-api" % "2.1",
+    "org.webjars" % "requirejs" % "2.1.22",
+    "org.webjars" % "jquery" % "2.1.4",
+    "org.webjars" % "underscorejs" % "1.8.3",
+    "org.webjars" % "nvd3" % "1.8.1",
+    "org.webjars" % "d3js" % "3.5.6",
+    "org.webjars" % "bootstrap" % "3.3.6",
     guice,
     specs2 % Test
   ),
@@ -17,7 +24,7 @@ lazy val server = (project in file("server")).settings(commonSettings).settings(
 lazy val client = (project in file("client")).settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer := true,
   libraryDependencies ++= Seq(
-    "org.scala-js" %%% "scalajs-dom" % "0.9.4"
+      "org.scala-js" %%% "scalajs-dom" % "0.9.4"
   )
 ).enablePlugins(ScalaJSPlugin, ScalaJSWeb).
   dependsOn(sharedJs)
