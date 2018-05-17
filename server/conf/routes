@@ -5,6 +5,8 @@
 # Home page
 GET        /                             io.angelortega.interactivedatavisualization.controllers.Application.index
 
+GET        /visualizations               io.angelortega.interactivedatavisualization.controllers.Visualizations.index
+
 # Prefix must match `play.assets.urlPrefix`
 GET         /assets/*file           controllers.Assets.at(path="/public", file)
 
